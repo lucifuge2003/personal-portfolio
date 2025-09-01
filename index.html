@@ -9,6 +9,8 @@
 </head>
 
 <body>
+    <canvas id="hero-canvas"></canvas>
+    <canvas id="bg-canvas"></canvas>
     <!-- Navbar -->
     <nav id="navbar" class="hidden">
         <a href="#about">About</a>
@@ -20,10 +22,16 @@
 
     <!-- Welcome Section -->
     <section id="welcome-section">
-        <h1>Hi, I'm <span id="name">Luiz</span>.</h1>
-        <p>Aspiring Fullstack Web & Mobile Developer.</p>
+        <h1>Hello, I'm <span id="name">Luiz</span>.</h1>
+        <p>I'm a full stack web and mobile developer.</p>
         <div class="heading-btn">
-            <a href="#about">View My Work</a>
+            <a href="#about">
+                <span>View My Work</span>
+                <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 5v14M19 12l-7 7-7-7" />
+                </svg>
+            </a>
         </div>
     </section>
 
@@ -98,7 +106,6 @@
         <a href="https://github.com/lucifuge2003" id="profile-link" target="_blank">Github</a>
         <p>Email: ltropero@gmail.com</p>
     </footer>
-    <script src="script.js"></script>
+    <script type="module" src="src/main.js"></script>
 </body>
-
 </html>
