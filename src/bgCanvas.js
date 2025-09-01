@@ -1,4 +1,3 @@
-// bgCanvas.js
 export default function canvasDotsBg() {
   const canvas = document.getElementById("bg-canvas");
   if (!canvas) return; // stop if element not found

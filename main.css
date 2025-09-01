@@ -99,7 +99,7 @@ h2 {
     font-weight: 500;
     line-height: 1rem;
     color: var(--purple);
-    background: transparent;
+    background: #11111180;
     border: 2px solid var(--purple);
     text-decoration: none;
     overflow: visible;
@@ -194,11 +194,138 @@ h2 {
     color: var(--purple);
 }
 
-/* About Section */
+/* About Section Styles - Merged with Image Icons */
 #about {
     padding: 5rem 2rem;
-    max-width: 800px;
-    margin: auto;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    height: 100vh;
+}
+
+.about-header h2 {
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+    color: var(--purple);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+.about-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-left-col {
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+    text-align: left;
+}
+
+.profile-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.profile-icon svg {
+    /* This will still style your profile SVG if you keep it */
+    width: 200px;
+    height: 200px;
+    stroke: var(--purple);
+    stroke-width: 1;
+    fill: transparent;
+}
+
+.about-left-col p {
+    font-size: 1.1rem;
+    font-weight: 300;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: #c9c9c9;
+    text-align: center;
+}
+
+/* Right column with the grid of icons */
+.about-right-col {
+    flex: 1;
+    /* Allows the column to expand to fill available space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Remove min-width to allow the column to shrink on small screens */
+}
+
+/* The grid container for the icons */
+.about-icons-grid {
+    display: grid;
+    /* The new grid rule will create columns between 80px and 1fr */
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 1.5rem;
+    justify-items: center;
+    align-items: center;
+    width: 100%;
+    /* Ensure the grid takes up the full width of its parent */
+    max-width: 500px;
+    /* Optional: Sets a max width for the grid itself */
+}
+
+/* Updated icon-box styling for better fit */
+.icon-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 0.5rem;
+    /* Reduced padding for a tighter fit */
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.icon-box img {
+    width: 40px;
+    /* Adjusted size for smaller icons */
+    height: 40px;
+    object-fit: contain;
+    margin-bottom: 0.25rem;
+}
+
+.icon-box p {
+    font-size: 0.75rem;
+    /* Slightly smaller font for the label */
+    color: #c9c9c9;
+    text-align: center;
+}
+
+.icon-box:hover {
+    transform: translateY(-5px);
+    border-color: var(--purple);
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .about-left-col {
+        text-align: center;
+    }
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .about-left-col {
+        text-align: center;
+        /* Center the text on mobile */
+    }
 }
 
 /* Projects Section */

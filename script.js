@@ -1,12 +1,13 @@
-// Show/hide navbar on scroll
 window.addEventListener("scroll", () => {
   const navbar = document.getElementById("navbar");
   const welcome = document.getElementById("welcome-section");
-  // When scrolled past the welcome section
-  if (window.scrollY > welcome.offsetHeight - 50) {
+
+  // Get the bottom edge of the welcome section
+  const welcomeBottom = welcome.offsetTop + welcome.offsetHeight;
+
+  if (window.scrollY > welcomeBottom - 50) {
     navbar.classList.add("visible");
   } else {
     navbar.classList.remove("visible");
   }
 });
-
