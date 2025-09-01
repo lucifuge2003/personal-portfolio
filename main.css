@@ -1,7 +1,9 @@
 /* vars  */
 :root {
-    --black-bg: #111111f5;
+    --black-bg: #111;
     --purple: #883788;
+    --purple-accent: #6e2f6e;
+    --white: #f9f9f9;
 }
 
 /* Reset & Base */
@@ -19,7 +21,7 @@ body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
     background: var(--black-bg);
-    color: #f9f9f9;
+    color: var(--white);
 }
 
 h1,
@@ -99,7 +101,7 @@ h2 {
     font-weight: 500;
     line-height: 1rem;
     color: var(--purple);
-    background: #11111180;
+    background: #11111080;
     border: 2px solid var(--purple);
     text-decoration: none;
     overflow: visible;
@@ -208,12 +210,21 @@ h2 {
     font-weight: 400;
     margin-top: 5rem;
     margin-bottom: 2rem;
-    color: var(--purple);
+    color: var(--white);
     text-transform: uppercase;
     letter-spacing: 2px;
     border-bottom: 2px solid rgba(255, 255, 255, 0.1);
     padding-bottom: 0.5rem;
     display: inline-block;
+}
+
+.header-design {
+    border: 15px solid var(--purple-accent);
+    width: 200px;
+    position: relative;
+    top: -70px;
+    left: 500px;
+    z-index: -1;
 }
 
 .about-flex {
