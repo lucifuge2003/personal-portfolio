@@ -79,6 +79,7 @@ h2 {
     justify-content: flex-end;
     gap: 2rem;
     z-index: 1000;
+    font-size: 1.2rem;
 }
 
 /* Navbar links */
@@ -92,6 +93,13 @@ h2 {
 /* Navbar link hover effect */
 #navbar a:hover {
     color: var(--purple);
+}
+
+#navbar a.active {
+    color: var(--purple);
+    font-weight: 700;
+    border-bottom: 2px solid var(--purple);
+    padding-bottom: 2px;
 }
 
 /*
