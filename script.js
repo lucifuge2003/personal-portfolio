@@ -1,13 +1,29 @@
-window.addEventListener("scroll", () => {
-  const navbar = document.getElementById("navbar");
-  const welcome = document.getElementById("welcome-section");
+const sections = document.querySelectorAll("section[id]");
 
-  // Get the bottom edge of the welcome section
-  const welcomeBottom = welcome.offsetTop + welcome.offsetHeight;
-
-  if (window.scrollY > welcomeBottom - 50) {
-    navbar.classList.add("visible");
-  } else {
-    navbar.classList.remove("visible");
+// Create an Intersection Observer
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      const navLink = document.querySelector(`#nav-${entry.target.id}`);
+      if (entry.isIntersecting) {
+        // Remove 'active' from all links
+        document.querySelectorAll("#navbar a").forEach((link) => {
+          link.classList.remove("active");
+        });
+        // Add 'active' to the current link
+        if (navLink) {
+          navLink.classList.add("active");
+        }
+      }
+    });
+  },
+  {
+    // Set an offset from the top of the viewport to trigger the change earlier
+    rootMargin: "-50% 0px -50% 0px",
   }
+);
+
+// Tell the observer to watch each section
+sections.forEach((section) => {
+  observer.observe(section);
 });

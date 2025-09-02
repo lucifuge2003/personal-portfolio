@@ -1,12 +1,18 @@
-/* vars  */
+/*
+  ========================================
+  Global Styles & Variables
+  ========================================
+*/
+
+/* Variables */
 :root {
-    --black-bg: #111;
+    --black-bg: #111111f8;
     --purple: #883788;
     --purple-accent: #6e2f6e;
     --white: #f9f9f9;
 }
 
-/* Reset & Base */
+/* Reset & Base Styles */
 * {
     margin: 0;
     padding: 0;
@@ -29,65 +35,80 @@ h2 {
     margin-bottom: 1rem;
 }
 
+/*
+  ========================================
+  Canvas & Background
+  ========================================
+*/
+
+/* Styles for the main hero canvas */
 #hero-canvas {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: -1;
-    pointer-events: none;
-}
-
-
-#bg-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -2;
-    pointer-events: none;
-}
-
-/* Navbar hidden initially */
-#navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-    padding: 1rem;
-    display: flex;
-    justify-content: right;
-    gap: 2rem;
-    z-index: 1000;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.5s ease;
-}
-
-/* Visible state */
-#navbar.visible {
-    opacity: 1;
     pointer-events: auto;
 }
 
+/* Styles for the background canvas on other sections */
+#bg-canvas {
+    position: absolute;
+    top: var(--hero-height);
+    left: 0;
+    z-index: -2;
+}
 
+/*
+  ========================================
+  Navigation Bar (Navbar)
+  ========================================
+*/
+
+/* Main navbar container */
+#navbar {
+    /* position: sticky makes it stick to the top when the user scrolls */
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background: #282828;
+    box-shadow: 0 7px 7px rgba(0, 0, 0, 0.4);
+    padding: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 2rem;
+    z-index: 1000;
+    font-size: 1.2rem;
+}
+
+/* Navbar links */
 #navbar a {
     text-decoration: none;
-    color: #111;
+    color: var(--white);
     font-weight: 500;
     transition: color 0.3s ease;
 }
 
+/* Navbar link hover effect */
 #navbar a:hover {
-    color: #0070f3;
-    /* Accent color */
+    color: var(--purple);
 }
 
-/* Button styling */
+#navbar a.active {
+    color: var(--purple);
+    font-weight: 700;
+    border-bottom: 2px solid var(--purple);
+    padding-bottom: 2px;
+}
+
+/*
+  ========================================
+  Button Styles & Animations
+  ========================================
+*/
+
+/* General button styling */
 .heading-btn a {
     position: relative;
     display: flex;
@@ -120,7 +141,7 @@ h2 {
     transition: transform 0.3s ease;
 }
 
-/* Pulses */
+/* Pulse animation for the button */
 .heading-btn a::before,
 .heading-btn a::after {
     content: "";
@@ -134,17 +155,17 @@ h2 {
     z-index: 0;
 }
 
-/* First pulse */
+/* First pulse animation */
 .heading-btn a:hover::before {
     animation: pulse-rect 0.8s ease-out;
 }
 
-/* Second pulse with delay */
+/* Second pulse with a slight delay */
 .heading-btn a:hover::after {
     animation: pulse-rect 0.8s ease-out 0.1s;
 }
 
-/* Keyframes with blur effect */
+/* Keyframes for the pulse animation */
 @keyframes pulse-rect {
     0% {
         opacity: 0.8;
@@ -165,12 +186,17 @@ h2 {
     }
 }
 
-/* Hover lift */
+/* Hover effect to lift the button slightly */
 .heading-btn a:hover {
     transform: translateY(-2px);
 }
 
-/* Welcome Section */
+/*
+  ========================================
+  Welcome Section
+  ========================================
+*/
+
 #welcome-section {
     height: 100vh;
     display: flex;
@@ -179,6 +205,8 @@ h2 {
     align-items: center;
     text-align: center;
     padding: 0 2rem;
+    position: relative;
+    z-index: 1;
 }
 
 #welcome-section h1 {
@@ -196,7 +224,12 @@ h2 {
     color: var(--purple);
 }
 
-/* About Section Styles - Merged with Image Icons */
+/*
+  ========================================
+  About Section
+  ========================================
+*/
+
 #about {
     padding: 5rem 2rem;
     max-width: 1200px;
@@ -206,27 +239,26 @@ h2 {
 }
 
 .about-header h2 {
-    font-size: 2.5rem;
-    font-weight: 400;
-    margin-top: 5rem;
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-top: 3rem;
     margin-bottom: 2rem;
     color: var(--white);
-    text-transform: uppercase;
     letter-spacing: 2px;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
     padding-bottom: 0.5rem;
     display: inline-block;
 }
 
 .header-design {
-    border: 15px solid var(--purple-accent);
-    width: 200px;
+    border: 10px solid var(--purple-accent);
+    width: 150px;
     position: relative;
-    top: -70px;
-    left: 500px;
+    top: -75px;
+    left: 520px;
     z-index: -1;
 }
 
+/* Flexbox container for the about section's content */
 .about-flex {
     display: flex;
     flex-wrap: wrap;
@@ -235,6 +267,7 @@ h2 {
     justify-content: center;
 }
 
+/* Left column of the about section */
 .about-left-col {
     flex: 1;
     min-width: 300px;
@@ -250,7 +283,6 @@ h2 {
 }
 
 .profile-icon svg {
-    /* This will still style your profile SVG if you keep it */
     width: 200px;
     height: 200px;
     stroke: var(--purple);
@@ -264,34 +296,29 @@ h2 {
     line-height: 1.8;
     margin-bottom: 1.5rem;
     color: #c9c9c9;
-    text-align: center;
+    text-align: justify;
 }
 
-/* Right column with the grid of icons */
+/* Right column of the about section (the skills grid) */
 .about-right-col {
     flex: 1;
-    /* Allows the column to expand to fill available space */
     display: flex;
     justify-content: center;
     align-items: center;
-    /* Remove min-width to allow the column to shrink on small screens */
 }
 
-/* The grid container for the icons */
+/* The grid container for the skill icons */
 .about-icons-grid {
     display: grid;
-    /* The new grid rule will create columns between 80px and 1fr */
     grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
     gap: 1.5rem;
     justify-items: center;
     align-items: center;
     width: 100%;
-    /* Ensure the grid takes up the full width of its parent */
     max-width: 500px;
-    /* Optional: Sets a max width for the grid itself */
 }
 
-/* Updated icon-box styling for better fit */
+/* Individual skill icon box */
 .icon-box {
     display: flex;
     flex-direction: column;
@@ -300,13 +327,11 @@ h2 {
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 8px;
     padding: 0.5rem;
-    /* Reduced padding for a tighter fit */
     transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
 .icon-box img {
     width: 40px;
-    /* Adjusted size for smaller icons */
     height: 40px;
     object-fit: contain;
     margin-bottom: 0.25rem;
@@ -314,32 +339,22 @@ h2 {
 
 .icon-box p {
     font-size: 0.75rem;
-    /* Slightly smaller font for the label */
     color: #c9c9c9;
     text-align: center;
 }
 
+/* Hover effect for the icon boxes */
 .icon-box:hover {
     transform: translateY(-5px);
     border-color: var(--purple);
 }
 
-/* Media query for smaller screens */
-@media (max-width: 768px) {
-    .about-left-col {
-        text-align: center;
-    }
-}
+/*
+  ========================================
+  Projects Section
+  ========================================
+*/
 
-/* Media query for smaller screens */
-@media (max-width: 768px) {
-    .about-left-col {
-        text-align: center;
-        /* Center the text on mobile */
-    }
-}
-
-/* Projects Section */
 #projects {
     padding: 5rem 2rem;
     background: #f9f9f9;
@@ -369,6 +384,12 @@ h2 {
     border-radius: 5px;
 }
 
+/*
+  ========================================
+  Learning & Certifications
+  ========================================
+*/
+
 /* Learning Section */
 #learning {
     padding: 5rem 2rem;
@@ -393,7 +414,12 @@ h2 {
     padding-left: 1.5rem;
 }
 
-/* Contact Section */
+/*
+  ========================================
+  Contact Section
+  ========================================
+*/
+
 #contact {
     padding: 3rem 2rem;
     text-align: center;
@@ -415,7 +441,12 @@ h2 {
     background: #0051a8;
 }
 
-/* Responsive */
+/*
+  ========================================
+  Responsive Design (Media Queries)
+  ========================================
+*/
+
 @media (max-width: 768px) {
     #welcome-section h1 {
         font-size: 2rem;
