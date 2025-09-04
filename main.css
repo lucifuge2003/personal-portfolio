@@ -191,6 +191,17 @@ h2 {
     transform: translateY(-2px);
 }
 
+.section-header {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    color: var(--white);
+    letter-spacing: 2px;
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
 /*
   ========================================
   Welcome Section
@@ -232,39 +243,30 @@ h2 {
 
 #about {
     padding: 5rem 2rem;
-    max-width: 1200px;
+    width: 1300px;
     margin: 0 auto;
-    text-align: center;
-    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.about-header h2 {
-    font-size: 3.5rem;
-    font-weight: 700;
-    margin-top: 3rem;
-    margin-bottom: 2rem;
-    color: var(--white);
-    letter-spacing: 2px;
-    padding-bottom: 0.5rem;
-    display: inline-block;
-}
-
-.header-design {
-    border: 10px solid var(--purple-accent);
-    width: 150px;
+.about-header::before {
     position: relative;
-    top: -75px;
-    left: 520px;
+    border: 10px solid var(--purple-accent);
+    width: 9rem;
+    content: '';
+    display: block;
+    margin: 0 auto;
+    left: 2rem;
+    top: 5rem;
     z-index: -1;
 }
 
 /* Flexbox container for the about section's content */
 .about-flex {
     display: flex;
-    flex-wrap: wrap;
-    gap: 3rem;
-    align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    width: 100%;
 }
 
 /* Left column of the about section */
@@ -301,46 +303,57 @@ h2 {
 
 /* Right column of the about section (the skills grid) */
 .about-right-col {
-    flex: 1;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 /* The grid container for the skill icons */
-.about-icons-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-    gap: 1.5rem;
-    justify-items: center;
-    align-items: center;
-    width: 100%;
-    max-width: 500px;
+.about-icons-row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.about-icons-row:not(:last-child) {
+    margin-right: 25px;
 }
 
 /* Individual skill icon box */
 .icon-box {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    padding: 0.5rem;
-    transition: transform 0.3s ease, border-color 0.3s ease;
+    justify-content: space-evenly;
+    height: 100px;
+    width: 160px;
+    border: double 3px transparent;
+    border-image-slice: 1;
+    border-width: 3px;
+    background-image: linear-gradient(var(--black-bg), var(--black-bg)), radial-gradient(circle at top left, var(--purple), #111111 );
+    border-radius: 10px;
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    transition: transform 0.2s, opacity 1.2s;
+    overflow: hidden;
+}
+
+.icon-box:not(:last-child) {
+    margin-bottom: 2rem;
 }
 
 .icon-box img {
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
-    margin-bottom: 0.25rem;
+    height: 60px;
+    width: auto;
+    transition: all 0.2s;
 }
 
 .icon-box p {
-    font-size: 0.75rem;
-    color: #c9c9c9;
-    text-align: center;
+    font-size:  1.2rem;
+    font-weight: 600;
+    line-height: 1;
+    transition: all 0.2s;
+    letter-spacing: 1;
 }
 
 /* Hover effect for the icon boxes */
@@ -349,6 +362,24 @@ h2 {
     border-color: var(--purple);
 }
 
+
+/*
+  ========================================
+  Certifications Section
+  ========================================
+*/
+
+.certifications-header::before {
+    position: relative;
+    border: 10px solid var(--purple-accent);
+    width: 17rem;
+    content: '';
+    display: block;
+    margin: 0 auto;
+    left: 2rem;
+    top: 3.8rem;
+    z-index: -1;
+}
 /*
   ========================================
   Projects Section
