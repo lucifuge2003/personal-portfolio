@@ -249,12 +249,15 @@ h2 {
     display: inline-block;
 }
 
-.header-design {
-    border: 10px solid var(--purple-accent);
-    width: 150px;
+.about-header h2::before {
     position: relative;
-    top: -75px;
-    left: 520px;
+    border: 10px solid var(--purple-accent);
+    width: 9rem;
+    content: '';
+    display: block;
+    margin: 0 auto;
+    left: 1.8rem;
+    top: 4.7rem;
     z-index: -1;
 }
 
